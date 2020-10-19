@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', includes: ['android.jar'])
+    implementation 'commons-io:commons-io:1.4'
+    implementation 'net.sf.kxml:kxml2:2.3.0'
+    implementation 'org.apache.commons:commons-lang3:3.4'
+}
+
+group = 'com.bigzhao.axml'
+version = '1.1.0-SNAPSHOT'
+sourceCompatibility = '1.7'
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from(components.java)
+        }
+    }
+}
